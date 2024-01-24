@@ -35,7 +35,7 @@ const EntryList = ({ entries, onSelect }) => {
             className="bg-[#f8f869] border-gray-300 p-6 w-52 h-52 cursor-pointer hover:bg-[#f7f783] shadow-xl hover:shadow-2xl rounded rounded-tl-none rounded-br-3xl"
             onClick={() => onSelect(entry)}
           >
-            <span className="capitalize block text-lg">
+            <span className="capitalize block text-base">
               <strong>{entry.title}</strong> <br />
               {entry.author} <br />
             </span>

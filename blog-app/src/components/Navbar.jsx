@@ -5,6 +5,7 @@ import avatar from "../assets/avatar.png";
 
 import LogoutIcon from "@mui/icons-material/Logout";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,19 +37,37 @@ const Navbar = () => {
             alt="User Avatar"
             className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover cursor-pointer hover:opacity-80 hover:shadow-2xl"
             onClick={() => setIsModalOpen(true)}
+            data-tooltip-id="profile-tooltip"
+            data-tooltip-content="Profile"
+            data-tooltip-place="bottom"
           />
+          <Tooltip id="profile-tooltip" />
           <div className="hidden sm:flex items-center text-white  mr-6 text-xl hover:shadow-2xl">
-            <HelpOutlineIcon className="ml-8 cursor-pointer hover:opacity-50 hover:shadow-lg hover:text-black" />
-            <LogoutIcon className="ml-4 cursor-pointer hover:opacity-50 hover:shadow-lg hover:text-black" />
+            <HelpOutlineIcon
+              className="ml-8 cursor-pointer hover:opacity-50 hover:shadow-lg hover:text-black"
+              data-tooltip-id="help-tooltip"
+              data-tooltip-content="FAQ"
+              data-tooltip-place="bottom"
+            />
+            <Tooltip id="help-tooltip" />
+            <LogoutIcon
+              className="ml-4 cursor-pointer hover:opacity-50 hover:shadow-lg hover:text-black"
+              data-tooltip-id="logout-tooltip"
+              data-tooltip-content="Log Out"
+              data-tooltip-place="bottom"
+            />
+            <Tooltip id="logout-tooltip" />
           </div>
         </div>
 
         {isModalOpen && (
-          <AvatarModal
-            username="carlosdmr29"
-            onClose={() => setIsModalOpen(false)}
-            onLogout={handleLogout}
-          />
+          <>
+            <AvatarModal
+              username="carlosdmr29"
+              onClose={() => setIsModalOpen(false)}
+              onLogout={handleLogout}
+            />
+          </>
         )}
       </div>
     </nav>
