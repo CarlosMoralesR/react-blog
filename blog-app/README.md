@@ -1,8 +1,55 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Blog Web Application
 
-Currently, two official plugins are available:
+A brief description of what this project does and who it's for
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Installation
+
+Install blog-app with yarn
+
+First you have to install yarn:
+
+```bash
+  npm install --global yarn
+
+```
+
+When you've successfully installed yarn, just do the
+following steps to be able to install the project dependencies:
+
+```bash
+  cd blog-app
+  yarn
+```
+
+Follow the next steps to run the project locally...
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone git@github.com:CarlosMoralesR/react-blog.git
+```
+
+Go to the project directory
+
+```bash
+  cd blog-app
+```
+
+Install dependencies
+
+```bash
+  yarn
+```
+
+Start the server
+
+```bash
+  yarn dev
+```
+
