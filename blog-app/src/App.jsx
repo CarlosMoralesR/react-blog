@@ -12,6 +12,8 @@ const App = () => {
   const [selectedEntry, setSelectedEntry] = useState(null);
   const [isAddingEntry, setIsAddingEntry] = useState(false);
   const [entries, setEntries] = useState([]);
+  const [offlineEntries, setOfflineEntries] = useState([]);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [loadingEntries, setLoadingEntries] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -22,29 +24,61 @@ const App = () => {
   const fetchEntries = () => {
     setLoadingEntries(true);
     getEntries()
-      .then((data) => setEntries(data))
+      .then((data) => {
+        setEntries(data);
+        setOfflineEntries(data);
+        localStorage.setItem("entries", JSON.stringify(data));
+      })
       .catch((error) => console.error("Error fetching entries:", error))
       .finally(() => setLoadingEntries(false));
   };
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isOnline) {
+      const storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
+      setOfflineEntries(storedEntries);
+    }
+  }, [isOnline]);
 
   const selectEntry = (entry) => {
     setSelectedEntry(entry);
   };
 
   const handleAddEntry = (newEntry) => {
-    setLoading(true);
+    if (isOnline) {
+      setLoading(true);
 
-    addEntry(newEntry)
-      .then((data) => {
-        setEntries([...entries, data]);
-      })
-      .catch((error) => {
-        console.error("Error adding entry:", error);
-      })
-      .finally(() => {
-        setLoading(false);
-        setIsAddingEntry(false);
-      });
+      addEntry(newEntry)
+        .then((data) => {
+          setEntries([...entries, data]);
+          const updatedOfflineEntries = [...offlineEntries, newEntry];
+          setOfflineEntries(updatedOfflineEntries);
+          localStorage.setItem(
+            "entries",
+            JSON.stringify(updatedOfflineEntries)
+          );
+        })
+        .catch((error) => {
+          console.error("Error adding entry:", error);
+        })
+        .finally(() => {
+          setLoading(false);
+          setIsAddingEntry(false);
+        });
+    }
   };
 
   const handleDeleteEntry = (entry) => {
@@ -69,7 +103,11 @@ const App = () => {
           Turn your ideas into colorful Post-its!
         </h2>
 
-        <AddPostButton onClick={() => setIsAddingEntry(true)} />
+        <AddPostButton
+          onClick={() => setIsAddingEntry(true)}
+          className={isOnline ? "" : "hover:cursor-not-allowed"}
+          disabled={!isOnline}
+        />
       </div>
 
       {loadingEntries && (
@@ -101,12 +139,30 @@ const App = () => {
       )}
 
       <div className="mx-14">
-        <EntryList
-          entries={entries}
-          onSelect={selectEntry}
-          onDelete={handleDeleteEntry}
-          loading={loading}
-        />
+        {isOnline ? (
+          <EntryList
+            entries={entries}
+            onSelect={selectEntry}
+            onDelete={handleDeleteEntry}
+            loading={loading}
+            isOnline={isOnline}
+          />
+        ) : (
+          <>
+            <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center">
+              <div className="bg-white p-4 max-w-sm">
+                <p className="text-center text-red-500">
+                  No Internet connection. Offline Mode On.
+                </p>
+              </div>
+            </div>
+            <EntryList
+              entries={offlineEntries}
+              onSelect={selectEntry}
+              isOnline={isOnline}
+            />
+          </>
+        )}
         {selectedEntry && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-[#f8f869] p-6 max-w-md w-auto rounded rounded-tl-none rounded-br-3xl shadow-2xl">

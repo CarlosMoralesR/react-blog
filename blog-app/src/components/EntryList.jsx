@@ -2,7 +2,7 @@ import { useState } from "react";
 import SearchBar from "./SearchBar";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const EntryList = ({ entries, onSelect, onDelete, loading }) => {
+const EntryList = ({ entries, onSelect, onDelete, loading, isOnline }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (term) => {
@@ -57,7 +57,7 @@ const EntryList = ({ entries, onSelect, onDelete, loading }) => {
                 e.stopPropagation();
                 confirmDelete(entry);
               }}
-              disabled={loading}
+              disabled={loading || !isOnline}
             >
               <DeleteIcon></DeleteIcon>
             </button>
