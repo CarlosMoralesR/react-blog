@@ -6,7 +6,7 @@ const SearchBar = ({ onSearch }) => {
   return (
     <input
       type="text"
-      placeholder="Buscar por título, autor o contenido"
+      placeholder="Search by title, author or content"
       onChange={handleSearch}
       className="border p-2 rounded mb-4 w-72"
     />
