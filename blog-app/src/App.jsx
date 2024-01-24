@@ -85,7 +85,9 @@ const App = () => {
     <div>
       <Navbar />
       <div className="flex justify-between">
-        <h2 className="text-3xl font-bold my-6 mx-14">Post-its</h2>
+        <h2 className="text-3xl font-bold my-6 mx-14">
+          Turn your ideas into colorful Post-its!
+        </h2>
 
         <AddPostButton onClick={() => setIsAddingEntry(true)} />
       </div>
