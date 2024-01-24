@@ -27,7 +27,7 @@ const EntryForm = ({ onSubmit }) => {
         </label>
         <input
           type="text"
-          placeholder="Insert Title..."
+          placeholder="Insert Short Title..."
           className="w-full p-2 border border-gray-300 rounded"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -39,7 +39,7 @@ const EntryForm = ({ onSubmit }) => {
         </label>
         <input
           type="text"
-          placeholder="Name & Last Name..."
+          placeholder="Insert Name & Last Name..."
           className="w-full p-2 border border-gray-300 rounded"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}

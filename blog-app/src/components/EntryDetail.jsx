@@ -1,3 +1,12 @@
+const formatDate = (dateString) => {
+  const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+  const formattedDate = new Date(dateString).toLocaleDateString(
+    undefined,
+    options
+  );
+  return formattedDate;
+};
+
 const EntryDetail = ({ entry }) => {
   return (
     <div className="">
@@ -7,7 +16,7 @@ const EntryDetail = ({ entry }) => {
       </p>
       <p className="mb-2">
         <small>
-          <strong>Date:</strong> {entry.date}
+          <strong>Date:</strong> {formatDate(entry.publicationDate)}
         </small>
       </p>
       <p>{entry.content}</p>

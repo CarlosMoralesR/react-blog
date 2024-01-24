@@ -15,6 +15,15 @@ const EntryList = ({ entries, onSelect }) => {
       entry.content.toLowerCase().includes(searchTerm)
   );
 
+  const formatDate = (dateString) => {
+    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+    const formattedDate = new Date(dateString).toLocaleDateString(
+      undefined,
+      options
+    );
+    return formattedDate;
+  };
+
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
@@ -30,7 +39,7 @@ const EntryList = ({ entries, onSelect }) => {
               <strong>{entry.title}</strong> <br />
               {entry.author} <br />
             </span>
-            <small>{entry.date}</small>
+            <small>{formatDate(entry.publicationDate)}</small>
             <p className="text-sm mt-1">{entry.content.substring(0, 70)}</p>
           </div>
         ))}

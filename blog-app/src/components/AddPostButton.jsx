@@ -5,7 +5,7 @@ const AddPostButton = ({ onClick }) => {
   return (
     <div className="flex justify-end p-4 mx-6">
       <button
-        className="bg-[#51d9e0] text-black h-12 w-12 lg:py-1 lg:px-3 rounded hover:bg-[#6fe1e7] hover:shadow-xl"
+        className="bg-[#6bfa40] text-black h-12 w-12 lg:py-1 lg:px-3 rounded hover:bg-[#8df76c] hover:shadow-xl"
         onClick={onClick}
         data-tooltip-id="add-post-tooltip"
         data-tooltip-content="Add Post-It"
