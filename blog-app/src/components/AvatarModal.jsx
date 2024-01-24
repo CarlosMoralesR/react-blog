@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const AvatarModal = ({ username, onClose, onLogout }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed z-20 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-4 w-48">
         <div className="flex justify-end">
           <button className="py-1 px-1 rounded" onClick={onClose}>

@@ -1,3 +1,4 @@
+// App.jsx
 import { useState, useEffect } from "react";
 import EntryForm from "./components/EntryForm";
 import CloseIcon from "@mui/icons-material/Close";
@@ -51,8 +52,7 @@ const App = () => {
 
     deleteEntry(entry.id)
       .then(() => {
-        const updatedEntries = entries.filter((e) => e.id !== entry.id);
-        setEntries(updatedEntries);
+        fetchEntries();
         setSelectedEntry(null);
       })
       .catch((error) => {
@@ -73,13 +73,13 @@ const App = () => {
       </div>
 
       {loadingEntries && (
-        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 z-10 bg-opacity-50 flex items-center justify-center">
           <div className="loading-circle mx-auto my-4"></div>
         </div>
       )}
 
       {isAddingEntry && (
-        <div className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed z-20 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-4 w-96">
             <div className="flex justify-end">
               <button
@@ -92,7 +92,7 @@ const App = () => {
             </div>
 
             {loading ? (
-              <div className="loading-circle mx-auto my-4"></div>
+              <div className="loading-circle z-10 mx-auto my-4"></div>
             ) : (
               <EntryForm onSubmit={handleAddEntry} />
             )}
@@ -105,6 +105,7 @@ const App = () => {
           entries={entries}
           onSelect={selectEntry}
           onDelete={handleDeleteEntry}
+          loading={loading}
         />
         {selectedEntry && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
