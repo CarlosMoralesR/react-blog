@@ -85,7 +85,7 @@ const App = () => {
     <div>
       <Navbar />
       <div className="flex justify-between">
-        <h2 className="text-3xl font-bold my-6 mx-14">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold my-6 mx-14">
           Turn your ideas into colorful Post-its!
         </h2>
 
