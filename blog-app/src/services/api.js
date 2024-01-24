@@ -15,3 +15,10 @@ export const addEntry = async (newEntry) => {
   });
   return await response.json();
 };
+
+export const deleteEntry = async (entryId) => {
+  const response = await fetch(`${BASE_URL}/entries/${entryId}`, {
+    method: "DELETE",
+  });
+  return response.json();
+};

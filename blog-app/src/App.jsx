@@ -1,4 +1,3 @@
-// App.jsx
 import { useState, useEffect } from "react";
 import EntryForm from "./components/EntryForm";
 import CloseIcon from "@mui/icons-material/Close";
@@ -6,7 +5,7 @@ import EntryList from "./components/EntryList";
 import EntryDetail from "./components/EntryDetail";
 import Navbar from "./components/Navbar";
 import AddPostButton from "./components/AddPostButton";
-import { getEntries, addEntry } from "./services/api";
+import { getEntries, addEntry, deleteEntry } from "./services/api";
 
 const App = () => {
   const [selectedEntry, setSelectedEntry] = useState(null);
@@ -16,16 +15,16 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getEntries()
-      .then((data) => {
-        setEntries(data);
-        setLoadingEntries(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching entries:", error);
-        setLoadingEntries(false);
-      });
+    fetchEntries();
   }, []);
+
+  const fetchEntries = () => {
+    setLoadingEntries(true);
+    getEntries()
+      .then((data) => setEntries(data))
+      .catch((error) => console.error("Error fetching entries:", error))
+      .finally(() => setLoadingEntries(false));
+  };
 
   const selectEntry = (entry) => {
     setSelectedEntry(entry);
@@ -47,6 +46,21 @@ const App = () => {
       });
   };
 
+  const handleDeleteEntry = (entry) => {
+    setLoading(true);
+
+    deleteEntry(entry.id)
+      .then(() => {
+        const updatedEntries = entries.filter((e) => e.id !== entry.id);
+        setEntries(updatedEntries);
+        setSelectedEntry(null);
+      })
+      .catch((error) => {
+        console.error("Error deleting entry:", error);
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
     <div>
       <Navbar />
@@ -65,7 +79,7 @@ const App = () => {
       )}
 
       {isAddingEntry && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-4 w-96">
             <div className="flex justify-end">
               <button
@@ -87,7 +101,11 @@ const App = () => {
       )}
 
       <div className="mx-14">
-        <EntryList entries={entries} onSelect={selectEntry} />
+        <EntryList
+          entries={entries}
+          onSelect={selectEntry}
+          onDelete={handleDeleteEntry}
+        />
         {selectedEntry && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-[#f8f869] p-6 max-w-md w-auto rounded rounded-tl-none rounded-br-3xl shadow-2xl">
