@@ -28,49 +28,49 @@ const App = () => {
     },
     {
       title: "Post 3",
-      author: "AAA",
+      author: "A1",
       date: "12-12-12",
       content:
         "In ut dolor vel lectus imperdiet dictum egestas vel metus. Suspendisse facilisis sapien justo, et tincidunt sem vestibulum sit amet. Quisque vitae turpis ut enim luctus sollicitudin. Pellentesque vitae purus velit. In et ipsum ac felis ornare lacinia sit amet ac arcu. Nullam accumsan justo vitae ornare pretium. Ut turpis quam, sagittis nec dolor eu, tristique consectetur diam. Duis leo lacus, dictum ac lacus ut, posuere consectetur mauris. Suspendisse varius neque sit amet nulla viverra sagittis. Vestibulum dictum suscipit mi vel blandit. Vivamus ac ornare dui.",
     },
     {
       title: "Post 3",
-      author: "AAA",
+      author: "A2",
       date: "12-12-12",
       content:
         "In ut dolor vel lectus imperdiet dictum egestas vel metus. Suspendisse facilisis sapien justo, et tincidunt sem vestibulum sit amet. Quisque vitae turpis ut enim luctus sollicitudin. Pellentesque vitae purus velit. In et ipsum ac felis ornare lacinia sit amet ac arcu. Nullam accumsan justo vitae ornare pretium. Ut turpis quam, sagittis nec dolor eu, tristique consectetur diam. Duis leo lacus, dictum ac lacus ut, posuere consectetur mauris. Suspendisse varius neque sit amet nulla viverra sagittis. Vestibulum dictum suscipit mi vel blandit. Vivamus ac ornare dui.",
     },
     {
       title: "Post 3",
-      author: "AAA",
+      author: "A3",
       date: "12-12-12",
       content:
         "In ut dolor vel lectus imperdiet dictum egestas vel metus. Suspendisse facilisis sapien justo, et tincidunt sem vestibulum sit amet. Quisque vitae turpis ut enim luctus sollicitudin. Pellentesque vitae purus velit. In et ipsum ac felis ornare lacinia sit amet ac arcu. Nullam accumsan justo vitae ornare pretium. Ut turpis quam, sagittis nec dolor eu, tristique consectetur diam. Duis leo lacus, dictum ac lacus ut, posuere consectetur mauris. Suspendisse varius neque sit amet nulla viverra sagittis. Vestibulum dictum suscipit mi vel blandit. Vivamus ac ornare dui.",
     },
     {
       title: "Post 3",
-      author: "AAA",
+      author: "A4",
       date: "12-12-12",
       content:
         "In ut dolor vel lectus imperdiet dictum egestas vel metus. Suspendisse facilisis sapien justo, et tincidunt sem vestibulum sit amet. Quisque vitae turpis ut enim luctus sollicitudin. Pellentesque vitae purus velit. In et ipsum ac felis ornare lacinia sit amet ac arcu. Nullam accumsan justo vitae ornare pretium. Ut turpis quam, sagittis nec dolor eu, tristique consectetur diam. Duis leo lacus, dictum ac lacus ut, posuere consectetur mauris. Suspendisse varius neque sit amet nulla viverra sagittis. Vestibulum dictum suscipit mi vel blandit. Vivamus ac ornare dui.",
     },
     {
       title: "Post 3",
-      author: "AAA",
+      author: "A5",
       date: "12-12-12",
       content:
         "In ut dolor vel lectus imperdiet dictum egestas vel metus. Suspendisse facilisis sapien justo, et tincidunt sem vestibulum sit amet. Quisque vitae turpis ut enim luctus sollicitudin. Pellentesque vitae purus velit. In et ipsum ac felis ornare lacinia sit amet ac arcu. Nullam accumsan justo vitae ornare pretium. Ut turpis quam, sagittis nec dolor eu, tristique consectetur diam. Duis leo lacus, dictum ac lacus ut, posuere consectetur mauris. Suspendisse varius neque sit amet nulla viverra sagittis. Vestibulum dictum suscipit mi vel blandit. Vivamus ac ornare dui.",
     },
     {
       title: "Post 3",
-      author: "AAA",
+      author: "A6",
       date: "12-12-12",
       content:
         "In ut dolor vel lectus imperdiet dictum egestas vel metus. Suspendisse facilisis sapien justo, et tincidunt sem vestibulum sit amet. Quisque vitae turpis ut enim luctus sollicitudin. Pellentesque vitae purus velit. In et ipsum ac felis ornare lacinia sit amet ac arcu. Nullam accumsan justo vitae ornare pretium. Ut turpis quam, sagittis nec dolor eu, tristique consectetur diam. Duis leo lacus, dictum ac lacus ut, posuere consectetur mauris. Suspendisse varius neque sit amet nulla viverra sagittis. Vestibulum dictum suscipit mi vel blandit. Vivamus ac ornare dui.",
     },
     {
       title: "Post 3",
-      author: "AAA",
+      author: "A7",
       date: "12-12-12",
       content:
         "In ut dolor vel lectus imperdiet dictum egestas vel metus. Suspendisse facilisis sapien justo, et tincidunt sem vestibulum sit amet. Quisque vitae turpis ut enim luctus sollicitudin. Pellentesque vitae purus velit. In et ipsum ac felis ornare lacinia sit amet ac arcu. Nullam accumsan justo vitae ornare pretium. Ut turpis quam, sagittis nec dolor eu, tristique consectetur diam. Duis leo lacus, dictum ac lacus ut, posuere consectetur mauris. Suspendisse varius neque sit amet nulla viverra sagittis. Vestibulum dictum suscipit mi vel blandit. Vivamus ac ornare dui.",
