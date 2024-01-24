@@ -1,8 +1,11 @@
-
 # React Blog Web Application
 
-A brief description of what this project does and who it's for
+Welcome to Bloggy! Your new favorite app to share your thoughts and feelings...
+This web application aims to help users express themselves in a fun way, having each
+post as a post-it element, and having multiple colorful elements to always highlight
+the fun side of expressing yourself!
 
+Go ahead and try it!
 
 ## Installation
 
@@ -24,8 +27,6 @@ following steps to be able to install the project dependencies:
 ```
 
 Follow the next steps to run the project locally...
-
-
 
 ## Run Locally
 
@@ -52,4 +53,3 @@ Start the server
 ```bash
   yarn dev
 ```
-
