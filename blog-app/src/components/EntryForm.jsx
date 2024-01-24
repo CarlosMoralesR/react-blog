@@ -19,7 +19,7 @@ const EntryForm = ({ onSubmit }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto my-3">
+    <div className="max-w-md mx-auto">
       <h2 className="text-xl text-center font-bold mb-4">Add New Post</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-base font-bold mb-2">
@@ -50,18 +50,20 @@ const EntryForm = ({ onSubmit }) => {
           Content:
         </label>
         <textarea
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full h-28 p-2 border border-gray-300 rounded resize-none"
           placeholder="Share your content here..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
       </div>
-      <button
-        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
-        onClick={handleSubmit}
-      >
-        Save Post
-      </button>
+      <div className="flex justify-end">
+        <button
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
+          onClick={handleSubmit}
+        >
+          Save Post
+        </button>
+      </div>
     </div>
   );
 };
