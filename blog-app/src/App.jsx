@@ -113,7 +113,7 @@ const App = () => {
         <EntryList entries={entries} onSelect={selectEntry} />
         {selectedEntry && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-4 w-auto">
+            <div className="bg-[#f8f869] p-6 max-w-md w-auto rounded rounded-tl-none rounded-br-3xl shadow-2xl">
               <div className="flex justify-end">
                 <button
                   className="py-1 px-1 rounded"

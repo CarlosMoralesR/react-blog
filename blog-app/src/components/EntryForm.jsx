@@ -20,7 +20,7 @@ const EntryForm = ({ onSubmit }) => {
 
   return (
     <div className="max-w-md mx-auto">
-      <h2 className="text-xl text-center font-bold mb-4">Add New Post</h2>
+      <h2 className="text-xl text-center font-bold mb-4">Add New Post-It</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-base font-bold mb-2">
           Title:

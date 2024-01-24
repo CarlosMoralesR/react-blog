@@ -1,12 +1,14 @@
 const EntryDetail = ({ entry }) => {
   return (
-    <div className="my-8">
-      <h2 className="text-2xl capitalize font-bold mb-4">{entry.title}</h2>
+    <div className="">
+      <h2 className="text-3xl capitalize font-bold mb-2">{entry.title}</h2>
       <p className="mb-2 capitalize">
         <strong>Author:</strong> {entry.author}
       </p>
       <p className="mb-2">
-        <strong>Date:</strong> {entry.date}
+        <small>
+          <strong>Date:</strong> {entry.date}
+        </small>
       </p>
       <p>{entry.content}</p>
     </div>
