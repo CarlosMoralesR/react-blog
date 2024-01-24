@@ -117,7 +117,7 @@ const EntryForm = ({ onSubmit }) => {
       </div>
       <div className="flex justify-end">
         <button
-          className="bg-[#51d9e0] text-black py-2 px-4 rounded hover:bg-[#6fe1e7]"
+          className="bg-[#6bfa40] text-black py-2 px-4 rounded hover:bg-[#8df76c"
           onClick={handleSubmit}
         >
           Save Post-It
