@@ -22,7 +22,7 @@ const Navbar = () => {
             alt="User Avatar"
             className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover mr-5 sm:transition-all sm:duration-100 sm:ease-out sm:hover:w-16 sm:hover:h-16"
           />
-          <p className="hover:text-black text-xl sm:text-2xl md:text-3xl">
+          <p className="hover:text-black text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl">
             Welcome to Bloggy!
           </p>
         </div>
@@ -34,7 +34,7 @@ const Navbar = () => {
           <img
             src={avatar}
             alt="User Avatar"
-            className="w-14 h-14 rounded-full object-cover cursor-pointer hover:opacity-80 hover:shadow-2xl"
+            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover cursor-pointer hover:opacity-80 hover:shadow-2xl"
             onClick={() => setIsModalOpen(true)}
           />
           <div className="hidden sm:flex items-center text-white  mr-6 text-xl hover:shadow-2xl">
