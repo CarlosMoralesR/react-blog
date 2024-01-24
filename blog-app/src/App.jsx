@@ -1,3 +1,4 @@
+// App.jsx
 import { useState, useEffect } from "react";
 import EntryForm from "./components/EntryForm";
 import CloseIcon from "@mui/icons-material/Close";
@@ -5,19 +6,17 @@ import EntryList from "./components/EntryList";
 import EntryDetail from "./components/EntryDetail";
 import Navbar from "./components/Navbar";
 import AddPostButton from "./components/AddPostButton";
+import { getEntries, addEntry } from "./services/api";
 
 const App = () => {
   const [selectedEntry, setSelectedEntry] = useState(null);
   const [isAddingEntry, setIsAddingEntry] = useState(false);
   const [entries, setEntries] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [loadingEntries, setLoadingEntries] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoadingEntries(true);
-
-    fetch("http://localhost:3001/entries")
-      .then((response) => response.json())
+    getEntries()
       .then((data) => {
         setEntries(data);
         setLoadingEntries(false);
@@ -32,25 +31,19 @@ const App = () => {
     setSelectedEntry(entry);
   };
 
-  const addEntry = (newEntry) => {
+  const handleAddEntry = (newEntry) => {
     setLoading(true);
 
-    fetch("http://localhost:3001/entries", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newEntry),
-    })
-      .then((response) => response.json())
+    addEntry(newEntry)
       .then((data) => {
         setEntries([...entries, data]);
-        setLoading(false);
-        setIsAddingEntry(false);
       })
       .catch((error) => {
         console.error("Error adding entry:", error);
+      })
+      .finally(() => {
         setLoading(false);
+        setIsAddingEntry(false);
       });
   };
 
@@ -66,7 +59,7 @@ const App = () => {
       </div>
 
       {loadingEntries && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center">
           <div className="loading-circle mx-auto my-4"></div>
         </div>
       )}
@@ -87,7 +80,7 @@ const App = () => {
             {loading ? (
               <div className="loading-circle mx-auto my-4"></div>
             ) : (
-              <EntryForm onSubmit={addEntry} />
+              <EntryForm onSubmit={handleAddEntry} />
             )}
           </div>
         </div>
